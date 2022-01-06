@@ -49,6 +49,7 @@ jobs:
         WS_RESOLVEALLDEPENDENCIES: false
         WS_FILESYSTEMSCAN: false
         WS_GENERATEPROJECTDETAILSJSON: true
+        WS_PYTHON_RESOLVEDEPENDENCIES: true
         WS_PYTHON_RESOLVEHIERARCHYTREE: true
         WS_PYTHON_IGNORESOURCEFILES: true
         WS_PYTHON_IGNOREPIPINSTALLERRORS: false
@@ -64,4 +65,4 @@ jobs:
       run: |
         curl -LJO https://unified-agent.s3.amazonaws.com/wss-unified-agent.jar
         echo Unified Agent downloaded successfully
-        java -jar wss-unified-agent.jar -appPath ./requirements.txt -d ./
+        java -jar wss-unified-agent.jar -appPath ./requirements.txt -d $PWD
