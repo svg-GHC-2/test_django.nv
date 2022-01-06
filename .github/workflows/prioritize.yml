@@ -38,17 +38,28 @@ jobs:
     - name: WhiteSource Prioritize Scan
       env:
         GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-        WS_APIKEY: ${{secrets.APIKEY}}
-        WS_USERKEY: ${{secrets.USERKEY}}
-        WS_WSS_URL: https://saas.whitesourcesoftware.com/agent
+        WS_APIKEY: ${{secrets.WS_APIKEY}}
+        WS_USERKEY: ${{secrets.WS_USERKEY}}
+        WS_WSS_URL: https://app.whitesourcesoftware.com/agent
         WS_PRODUCTNAME: GH_${{github.event.repository.name}}
         WS_PROJECTNAME: ${{github.ref}}_Prioritize
         WS_ENABLEIMPACTANALYSIS: true
         WS_REQUIREKNOWNSHA1: false
         WS_RESOLVEALLDEPENDENCIES: false
-        WS_PYTHON_RESOLVEDEPENDENCIES: true
         WS_FILESYSTEMSCAN: false
         WS_GENERATEPROJECTDETAILSJSON: true
+        WS_PYTHON_RESOLVEHIERARCHYTREE: true
+        WS_PYTHON_IGNORESOURCEFILES: true
+        WS_PYTHON_IGNOREPIPINSTALLERRORS: false
+        WS_PYTHON_INSTALLVIRTUALENV: false
+        WS_PYTHON_REQUIREMENTSFILEINCLUDES: "requirements.txt"
+        WS_PYTHON_RESOLVESETUPPYFILES: false
+        WS_PYTHON_INDEXURL: "https://pypi.org/simple"
+        WS_PYTHON_RUNPOETRYPREPSTEP: false
+        WS_PYTHON_RESOLVEPIPEDITABLEPACKAGES: false
+        WS_PYTHON_RUNPIPENVPRESTEP: false
+        WS_PYTHON_PIPENVDEVDEPENDENCIES: false
+        WS_PYTHON_RESOLVEGLOBALPACKAGES: false
       run: |
         curl -LJO https://unified-agent.s3.amazonaws.com/wss-unified-agent.jar
         echo Unified Agent downloaded successfully
