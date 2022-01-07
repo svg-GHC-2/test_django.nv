@@ -65,4 +65,4 @@ jobs:
       run: |
         curl -LJO https://unified-agent.s3.amazonaws.com/wss-unified-agent.jar
         echo Unified Agent downloaded successfully
-        java -jar wss-unified-agent.jar -appPath ./requirements.txt -d $PWD
+        java -jar wss-unified-agent.jar -appPath ./requirements.txt -d ./
